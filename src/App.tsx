@@ -13,17 +13,22 @@ const LayoutWrapper = () => {
 };
 
 function App() {
-  const router = createBrowserRouter([
+  const router = createBrowserRouter(
+    [
+      {
+        path: "/",
+        element: <LayoutWrapper />,
+        children: [
+          { path: "/", element: <Gateway /> },
+          { path: "/solidPrinciple", element: <SolidPrinciplePage /> },
+          { path: "*", element: <Error /> },
+        ],
+      },
+    ],
     {
-      path: "/",
-      element: <LayoutWrapper />,
-      children: [
-        { path: "/", element: <Gateway /> },
-        { path: "/solidPrinciple", element: <SolidPrinciplePage /> },
-        { path: "*", element: <Error /> },
-      ],
+      basename: "/basics-101",
     },
-  ]);
+  );
 
   return <RouterProvider router={router} />;
 }

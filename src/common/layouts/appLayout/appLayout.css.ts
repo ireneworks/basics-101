@@ -7,7 +7,7 @@ export const layout = style({
 });
 
 export const nav = style({
-  flex: "0 0 230px",
+  flex: "0 0 300px",
   borderRight: `1px solid ${root.color.gray100}`,
   overflowY: "auto",
 });
@@ -52,6 +52,7 @@ export const listItemTitle = style({
   fontWeight: 900,
   color: root.color.gray900,
   letterSpacing: -0.4,
+  boxSizing: "border-box",
 });
 
 export const childMenu = style({
@@ -59,7 +60,7 @@ export const childMenu = style({
   padding: "12px 20px",
   textAlign: "left",
   fontSize: 13,
-  fontWeight: 500,
+  fontWeight: 600,
   color: root.color.gray600,
   letterSpacing: -0.3,
   cursor: "pointer",
@@ -71,6 +72,13 @@ export const childMenu = style({
     },
   },
 });
+
+export const childMenuActive = style([
+  childMenu,
+  {
+    color: root.color.blue600,
+  },
+]);
 
 export const footer = style({
   margin: "40px 20px",

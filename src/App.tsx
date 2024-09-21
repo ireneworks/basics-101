@@ -3,6 +3,7 @@ import { Gateway } from "./pages/gateway/Gateway";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import { Error } from "./pages/error/Error";
 import SolidPrinciplePage from "./pages/oop/solidPrinciple/solidPrinciplePage";
+import { routePath } from "./common/constants/routePath.contstants.ts";
 
 const LayoutWrapper = () => {
   return (
@@ -13,22 +14,17 @@ const LayoutWrapper = () => {
 };
 
 function App() {
-  const router = createBrowserRouter(
-    [
-      {
-        path: "/",
-        element: <LayoutWrapper />,
-        children: [
-          { path: "/", element: <Gateway /> },
-          { path: "/solidPrinciple", element: <SolidPrinciplePage /> },
-          { path: "*", element: <Error /> },
-        ],
-      },
-    ],
+  const router = createBrowserRouter([
     {
-      basename: "/basics-101",
+      path: routePath.gateway,
+      element: <LayoutWrapper />,
+      children: [
+        { path: routePath.gateway, element: <Gateway /> },
+        { path: routePath.solidPrinciple, element: <SolidPrinciplePage /> },
+        { path: "*", element: <Error /> },
+      ],
     },
-  );
+  ]);
 
   return <RouterProvider router={router} />;
 }

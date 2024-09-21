@@ -5,3 +5,7 @@ export const headingBlue = style({
   color: root.color.blue600,
   marginRight: 12,
 });
+
+export const descWrapper = style({
+  marginBottom: 40,
+});

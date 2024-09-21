@@ -103,7 +103,7 @@ globalStyle("p", {
   margin: 0,
   fontWeight: 500,
   fontSize: 15,
-  lineHeight: 1.5,
+  lineHeight: "24px",
   letterSpacing: -0.1,
   color: root.color.gray700,
   whiteSpace: "pre-line",

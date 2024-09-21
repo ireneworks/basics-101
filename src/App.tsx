@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { AppLayout } from "./common/layouts/appLayout/AppLayout";
+import { Gateway } from "./pages/gateway/Gateway";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import { Error } from "./pages/error/Error";
+import SolidPrinciplePage from "./pages/oop/solidPrinciple/solidPrinciplePage";
+
+const LayoutWrapper = () => {
+  return (
+    <AppLayout>
+      <Outlet />
+    </AppLayout>
+  );
+};
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <LayoutWrapper />,
+      children: [
+        { path: "/", element: <Gateway /> },
+        { path: "/solidPrinciple", element: <SolidPrinciplePage /> },
+        { path: "*", element: <Error /> },
+      ],
+    },
+  ]);
+
+  return <RouterProvider router={router} />;
 }
 
 export default App;

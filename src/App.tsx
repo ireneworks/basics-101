@@ -1,4 +1,3 @@
-import React from "react";
 import { AppLayout } from "./common/layouts/appLayout/AppLayout";
 import { Gateway } from "./pages/gateway/Gateway";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";

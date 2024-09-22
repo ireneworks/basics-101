@@ -10,9 +10,9 @@ import PageLayout from "../../../common/layouts/pageLayout/PageLayout";
 export default function SolidPrinciplePage() {
   return (
     <PageLayout
-      title="SOLID 원칙 톺아보기"
+      title="프론트엔드의 SOLID 원칙 활용법"
       desc={
-        "SOLID 원칙은 소프트웨어 설계에서 유지보수성과 확장성을 높이기 위해 도입된 중요한 개념입니다.\n이 원칙들은 개별 모듈이나 클래스가 어떻게 설계되어야 하는지에 대한 가이드라인을 제공합니다."
+        "SOLID 원칙은 소프트웨어 설계에서 유지보수성과 확장성을 높이기 위해 도입된 중요한 개념입니다. 이 원칙들은 개별 모듈이나 클래스가 어떻게 설계되어야 하는지에 대한 가이드라인을 제공합니다."
       }
     >
       <Heading2>왜 SOLID 원칙이 필요할까요?</Heading2>

@@ -1,5 +1,5 @@
 import { style } from "@vanilla-extract/css";
-import { root } from "../../../styles/common.css";
+import { root } from "../../../common.css.ts";
 
 export const divider = style({
   width: "100%",

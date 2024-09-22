@@ -1,9 +1,14 @@
 import { style } from "@vanilla-extract/css";
-import { root } from "../../../styles/common.css";
+import { root } from "../../../common.css.ts";
 
 export const layout = style({
   display: "flex",
   height: "100vh",
+  "@media": {
+    "screen and (max-width: 1024px)": {
+      flexDirection: "column",
+    },
+  },
 });
 
 export const nav = style({
@@ -12,10 +17,50 @@ export const nav = style({
   overflowY: "auto",
 });
 
+export const navMobile = style({
+  "@media": {
+    "screen and (max-width: 1024px)": {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between",
+      padding: "20px",
+    },
+  },
+});
+
+export const navMobileMenuButton = style({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+});
+
+export const navMobileHeader = style({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-between",
+  padding: 20,
+});
+
+export const navMobileContainer = style({
+  "@media": {
+    "screen and (max-width: 1024px)": {
+      width: "100%",
+      height: "100vh",
+      overflowY: "auto",
+      scrollbarWidth: "none",
+    },
+  },
+});
+
 export const main = style({
   flex: 1,
   padding: "40px 52px",
   overflowY: "auto",
+  "@media": {
+    "screen and (max-width: 1024px)": {
+      padding: "16px 20px 32px",
+    },
+  },
 });
 
 export const header = style({

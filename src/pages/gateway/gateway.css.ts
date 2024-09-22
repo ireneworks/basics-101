@@ -4,5 +4,5 @@ export const gateway = style({
   display: "flex",
   flexDirection: "column",
   alignItems: "flex-start",
-  gap: 40,
+  gap: 24,
 });

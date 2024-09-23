@@ -62,7 +62,7 @@ globalStyle("li", {
 globalStyle("h1", {
   margin: 0,
   padding: 0,
-  fontSize: 52,
+  fontSize: 48,
   fontWeight: 900,
   color: root.color.gray900,
   letterSpacing: -0.4,
@@ -121,8 +121,7 @@ globalStyle("p", {
   whiteSpace: "pre-line",
   "@media": {
     "screen and (max-width: 1024px)": {
-      fontSize: 14,
-      lineHeight: 1.6,
+      lineHeight: "25px",
     },
   },
 });

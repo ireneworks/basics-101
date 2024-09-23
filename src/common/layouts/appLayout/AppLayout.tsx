@@ -91,7 +91,7 @@ export const AppLayout: React.FC<Props> = ({ children }) => {
               className={navMobileMenuButton}
               onClick={() => toggleIsOpen(!isOpen)}
             >
-              <MenuIcon color={"gray900"} width={32} height={32} />
+              <MenuIcon color={"gray900"} width={28} height={28} />
             </button>
           </nav>
         )}
@@ -114,7 +114,7 @@ export const AppLayout: React.FC<Props> = ({ children }) => {
                 className={navMobileMenuButton}
                 onClick={() => toggleIsOpen(!isOpen)}
               >
-                <XIcon color={"gray900"} width={32} height={32} />
+                <XIcon color={"gray900"} width={28} height={28} />
               </button>
             </div>
             {contents.map(({ title, menus, routes }, index) => (
@@ -155,9 +155,9 @@ const contents = [
     routes: [],
   },
   {
-    title: "객체지향 OOP",
+    title: "객체지향 프로그래밍 OOP",
     menus: [
-      "프론트엔드의 SOLID 원칙 활용법",
+      "프론트엔드의 객체지향 프로그래밍",
       "데이터 중심 설계 패턴과 친해지기",
     ],
     routes: [routePath.solidPrinciple],

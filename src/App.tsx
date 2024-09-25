@@ -1,7 +1,6 @@
 import { AppLayout } from "./common/layouts/appLayout/AppLayout";
 import { Gateway } from "./pages/gateway/Gateway";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
-import { Error } from "./pages/error/Error";
 import OopDevelopmentPage from "./pages/oop/oopDevelopment/oopDevelopmentPage.tsx";
 import { routePath } from "./common/constants/routePath.contstants.ts";
 
@@ -21,7 +20,6 @@ function App() {
       children: [
         { path: routePath.gateway, element: <Gateway /> },
         { path: routePath.solidPrinciple, element: <OopDevelopmentPage /> },
-        { path: "*", element: <Error /> },
       ],
     },
   ]);

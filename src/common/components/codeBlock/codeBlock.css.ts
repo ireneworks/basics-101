@@ -5,7 +5,7 @@ export const codeBlock = style({
   overflow: "hidden",
   fontSize: 13,
   fontWeight: 500,
-  lineHeight: "19px",
+  lineHeight: "21px",
   "@media": {
     "screen and (max-width: 1024px)": {
       fontSize: 12,

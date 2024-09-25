@@ -114,8 +114,8 @@ globalStyle("h6", {
 globalStyle("p", {
   margin: 0,
   fontWeight: 500,
-  fontSize: 15,
-  lineHeight: "24px",
+  fontSize: 16,
+  lineHeight: "26px",
   letterSpacing: -0.1,
   color: root.color.gray700,
   whiteSpace: "pre-line",

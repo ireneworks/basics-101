@@ -54,11 +54,11 @@ export const navMobileContainer = style({
 
 export const main = style({
   flex: 1,
-  padding: "40px 52px",
+  padding: "40px 52px 80px",
   overflowY: "auto",
   "@media": {
     "screen and (max-width: 1024px)": {
-      padding: "16px 20px 32px",
+      padding: "16px 20px 40px",
     },
   },
 });

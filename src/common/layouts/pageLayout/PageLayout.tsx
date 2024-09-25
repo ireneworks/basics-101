@@ -1,6 +1,6 @@
 import React from "react";
 import Divider from "../../components/divider/Divider";
-import { description } from "./pageLayout.css";
+import { description, pageLayout } from "./pageLayout.css";
 
 interface Props {
   title: string;
@@ -10,7 +10,7 @@ interface Props {
 
 export default function PageLayout({ title, desc, children }: Props) {
   return (
-    <div>
+    <div className={pageLayout}>
       <div>
         <h1>{title}</h1>
         <p className={description}>{desc}</p>

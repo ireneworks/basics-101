@@ -48,17 +48,21 @@ export default function OopDevelopmentPage() {
         }}
       />
       <p>
-        SDP 페이지는 썸네일, ATF, BTF로 나눌 수 있다. 그 중에서 썸네일 + ATF
-        영역을 가상으로 설계해보고자 한다.
+        SDP 페이지는 썸네일, ATF, BTF로 나눌 수 있다. 페이지에서 공통적으로
+        가지는 네비게이션과 탭바는 레이아웃으로 분리하고 썸네일과 BTF 영역은
+        모두 동일하게 데이터만 제공하면 동일한 뷰를 가지는 구조이다.
+        카테고리별로 달라지는 부분 ATF 영역으로 각 카테고리 별로 조합하여 사용할
+        수 있도록 하고자 한다. 먼저 모든 상품 카테고리의 틀이 될 수 있는
+        레이아웃을 만들었다.
       </p>
-      <p>먼저 모든 상품 카테고리의 틀이 될 수 있는 레이아웃을 만들었다.</p>
       <CodeBlock
         codeSnippet={
-          "export default function SdpLayout({ thumbnail, category, isTimeDeal, children }) {\n" +
+          "export default function SdpLayout({ thumbnail, children, btf }) {\n" +
           "  return (\n" +
-          "    <Layout> // 네비게이션과 CTA가 포함된 레이아웃\n" +
-          "      <Thumbnail thumbnail={thumbnail} ads={category} isTimeDeal={isTimeDeal} />\n" +
+          "    <Layout>\n" +
+          "      <Thumbnail thumbnail={thumbnail} />\n" +
           "      <Atf>{children}</Atf>\n" +
+          "      <Btf btf={btf}/ >\n" +
           "    </Layout>\n" +
           "  );\n" +
           "}"
@@ -75,85 +79,43 @@ export default function OopDevelopmentPage() {
       </p>
       <CodeBlock
         codeSnippet={
-          "export function HealthSdp({\n" +
-          "  thumbnail,\n" +
-          "  isTimeDeal,\n" +
-          "  brand,\n" +
-          "  review,\n" +
-          "  title,\n" +
-          "  sizes,\n" +
-          "  price,\n" +
-          "  shipment,\n" +
-          "}) {\n" +
+          "export function HealthSdp(props) {\n" +
           "  return (\n" +
-          "    <Sdp\n" +
-          "      thumbnail={thumbnail}\n" +
-          "      category={CATEGORY.Health}\n" +
-          "      isTimeDeal={isTimeDeal}\n" +
-          "    >\n" +
-          "      <Reivew.Default brand={brand} review={review} />\n" +
-          "      <Title title={title} />\n" +
-          "      <Options.Size options={sizes} />\n" +
-          "      <PriceAndShipment price={price} shipment={shipment} />\n" +
+          "    <Sdp thumbnail={props.thumbnail} btf={props.btf}>\n" +
+          "      <Reivew.Default brand={props.brand} review={props.review} />\n" +
+          "      <Title title={props.title} />\n" +
+          "      <Options.Size options={props.sizes} />\n" +
+          "      <PriceAndShipment price={props.price} shipment={props.shipment} />\n" +
           "      <PaymentBenefit.CoupangCash />\n" +
           "    </Sdp>\n" +
           "  );\n" +
           "}\n" +
           "\n" +
-          "export function ApplianceSdp({\n" +
-          "  thumbnail,\n" +
-          "  isTimeDeal,\n" +
-          "  brand,\n" +
-          "  review,\n" +
-          "  title,\n" +
-          "  displaySizes,\n" +
-          "  price,\n" +
-          "  shipment,\n" +
-          "  quantity,\n" +
-          "}) {\n" +
+          "export function ApplianceSdp(props) {\n" +
           "  return (\n" +
-          "    <Sdp\n" +
-          "      thumbnail={thumbnail}\n" +
-          "      category={CATEGORY.Appliance}\n" +
-          "      isTimeDeal={isTimeDeal}\n" +
-          "    >\n" +
-          "      <Reivew.Default brand={brand} review={review} />\n" +
-          "      <Title title={title} />\n" +
-          "      <Options.Tv options={displaySizes} />\n" +
+          "    <Sdp thumbnail={props.thumbnail} btf={props.btf}>\n" +
+          "      <Reivew.Default brand={props.brand} review={props.review} />\n" +
+          "      <Title title={props.title} />\n" +
+          "      <Options.Tv options={props.displaySizes} />\n" +
           "      <Insuarance.Care />\n" +
-          "      <PriceAndShipment price={price} shipment={shipment} />\n" +
+          "      <PriceAndShipment price={props.price} shipment={props.shipment} />\n" +
           "      <PaymentBenefit.CreditCard />\n" +
-          "      <Quantity quantity={quantity} />\n" +
+          "      <Quantity quantity={props.quantity} />\n" +
           "      <Insuarance.Info />\n" +
           "    </Sdp>\n" +
           "  );\n" +
           "}\n" +
           "\n" +
-          "export function CoffeeSdp({\n" +
-          "  thumbnail,\n" +
-          "  isTimeDeal,\n" +
-          "  brand,\n" +
-          "  review,\n" +
-          "  title,\n" +
-          "  sizes,\n" +
-          "  price,\n" +
-          "  shipment,\n" +
-          "  quantity,\n" +
-          "  sku,\n" +
-          "}) {\n" +
+          "export function CoffeeSdp(props) {\n" +
           "  return (\n" +
-          "    <Sdp\n" +
-          "      thumbnail={thumbnail}\n" +
-          "      category={CATEGORY.Coffee}\n" +
-          "      isTimeDeal={isTimeDeal}\n" +
-          "    >\n" +
-          "      <Reivew.Default brand={brand} review={review} />\n" +
-          "      <Title title={title} />\n" +
-          "      <Options.Size options={sizes} />\n" +
-          "      <PriceAndShipment price={price} shipment={shipment} />\n" +
+          "    <Sdp thumbnail={props.thumbnail} btf={props.btf}>\n" +
+          "      <Reivew.Default brand={props.brand} review={props.review} />\n" +
+          "      <Title title={props.title} />\n" +
+          "      <Options.Size options={props.sizes} />\n" +
+          "      <PriceAndShipment price={props.price} shipment={props.shipment} />\n" +
           "      <PaymentBenefit.CoupangCash />\n" +
-          "      <Quantity quantity={quantity} />\n" +
-          "      <OtherSellers Sku={sku} />\n" +
+          "      <Quantity quantity={props.quantity} />\n" +
+          "      <OtherSellers Sku={props.sku} />\n" +
           "    </Sdp>\n" +
           "  );\n" +
           "}"
